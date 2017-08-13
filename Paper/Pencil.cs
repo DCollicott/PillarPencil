@@ -8,5 +8,11 @@ namespace PillarPencil.Model
         public Pencil()
         {
         }
+
+
+        public void Write(Paper Ppr, string NewText)
+        {
+            Ppr.Append(NewText);
+        }
     }
 }

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LorumIpsum.cs" />
     <Compile Include="Paper_ObjectCreation.cs" />
     <Compile Include="Pencil_Write.cs" />
     <Compile Include="Pencil_ObjectCreation.cs" />

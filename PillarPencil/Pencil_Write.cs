@@ -12,7 +12,12 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Text()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil();
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "The quick brown fox jumps over the lazy dog.");
+
+            Assert.That(ppr.Text, Is.EqualTo("The quick brown fox jumps over the lazy dog."));
         }
 
 
