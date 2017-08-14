@@ -7,13 +7,20 @@ namespace PillarPencil.Model
     {
         public int Durability { get; private set; }
 
+        public int Length { get; private set; }
 
-        public Pencil(int Durability)
+
+        private int InitialDurability;
+
+
+        public Pencil(int Durability, int Length)
         {
-            if (Durability < 0)
+            if ((Durability < 0) || (Length < 0))
                 throw new ArgumentOutOfRangeException();
 
             this.Durability = Durability;
+            this.InitialDurability = Durability;
+            this.Length = Length;
         }
 
 
@@ -32,6 +39,18 @@ namespace PillarPencil.Model
                     Durability -= DurabilityCost(ch);
                 }
             }
+        }
+
+
+        public bool Sharpen()
+        {
+            if (Length == 0)
+                return false;
+
+            Durability = InitialDurability;
+            Length -= 1;
+
+            return true;
         }
 
 

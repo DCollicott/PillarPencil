@@ -12,28 +12,51 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Sharpen_Resets_Durability()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil(10000, 5);
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "a");
+
+            Assert.That(pncl.Durability, Is.EqualTo(9999));
+
+            Assert.That(pncl.Sharpen(), Is.EqualTo(true));
+            Assert.That(pncl.Durability, Is.EqualTo(10000));
         }
 
 
         [Test]
         public void Pencil_Sharpen_Decreases_Length()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil(10000, 5);
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "a");
+            pncl.Sharpen();
+
+            Assert.That(pncl.Length, Is.EqualTo(4));
         }
 
 
         [Test]
-        public void Pencil_Sharpen_Zero_Length_No_Effect()
+        public void Pencil_Sharpen_Zero_Length_No_Durability_Effect()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil(10000, 0);
+            var ppr = new Paper();
+
+            Assert.That(pncl.Sharpen(), Is.EqualTo(false));
+            Assert.That(pncl.Durability, Is.EqualTo(10000));
+            Assert.That(pncl.Length, Is.EqualTo(0));
         }
 
 
         [Test]
-        public void Pencil_Sharpen_Full_Durability_No_Effect()
+        public void Pencil_Sharpen_Full_Durability_No_Length_Durability_Effect()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil(10000, 5);
+            var ppr = new Paper();
+
+            Assert.That(pncl.Sharpen(), Is.EqualTo(true));
+            Assert.That(pncl.Durability, Is.EqualTo(10000));
         }
     }
 }

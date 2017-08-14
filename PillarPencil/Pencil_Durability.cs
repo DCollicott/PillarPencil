@@ -12,7 +12,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_LowerCase_Reduces_Durability()
         {
-            var pncl = new Pencil(10000);
+            var pncl = new Pencil(10000, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, "a");
@@ -24,7 +24,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_UpperCase_Reduces_Durability()
         {
-            var pncl = new Pencil(10000);
+            var pncl = new Pencil(10000, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, "A");
@@ -36,7 +36,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_WhiteSpace_Doesnt_Reduce_Durability()
         {
-            var pncl = new Pencil(10000);
+            var pncl = new Pencil(10000, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, " ");
@@ -48,7 +48,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Newline_Doesnt_Reduce_Durability()
         {
-            var pncl = new Pencil(10000);
+            var pncl = new Pencil(10000, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, Environment.NewLine);
@@ -60,7 +60,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Partial_With_Insufficient_Durability_Simple()
         {
-            var pncl = new Pencil(10);
+            var pncl = new Pencil(10, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, "abcdefghijklmnop");
@@ -73,7 +73,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Partial_With_Insufficient_Durability_Complex()
         {
-            var pncl = new Pencil(9);
+            var pncl = new Pencil(9, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, "ABCDEFGHIJKLMNOP");
@@ -86,7 +86,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Cant_Write_With_Zero_Durability()
         {
-            var pncl = new Pencil(0);
+            var pncl = new Pencil(0, 5);
             var ppr = new Paper();
 
             pncl.Write(ppr, "ABCDEFGHIJKLMNOP");
