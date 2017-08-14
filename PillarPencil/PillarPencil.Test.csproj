@@ -50,6 +50,7 @@
     <Compile Include="LorumIpsum.cs" />
     <Compile Include="Paper_Manipulation.cs" />
     <Compile Include="Paper_ObjectCreation.cs" />
+    <Compile Include="Pencil_Durability.cs" />
     <Compile Include="Pencil_Write.cs" />
     <Compile Include="Pencil_ObjectCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
