@@ -60,5 +60,16 @@ namespace PillarPencil.Test
 
             Assert.That(ppr.Text(), Is.EqualTo(""));
         }
+
+
+        [Test]
+        public void Paper_Append_Char()
+        {
+            var ppr = new Paper();
+
+            ppr.Append('Q');
+
+            Assert.That(ppr.Text(), Is.EqualTo("Q"));
+        }
     }
 }

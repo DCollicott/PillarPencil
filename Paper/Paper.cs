@@ -22,10 +22,16 @@ namespace PillarPencil.Model
 
         public void Append(string NewText)
         {
-            if (NewText == null)                
+            if (NewText == null)
                 return;             // Allowed, but do nothing.
 
             _txt += NewText;
+        }
+
+
+        public void Append(char NewChar)
+        {
+            _txt += NewChar;
         }
     }
 }
