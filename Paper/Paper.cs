@@ -5,18 +5,27 @@ namespace PillarPencil.Model
 {
     public class Paper
     {
-        public string Text { get; private set; }
+        public string _txt;
 
 
         public Paper()
         {
-            Text = "";
+            _txt = "";
+        }
+
+
+        public string Text()
+        {
+            return _txt;
         }
 
 
         public void Append(string NewText)
         {
-            Text += NewText;
+            if (NewText == null)                
+                return;             // Allowed, but do nothing.
+
+            _txt += NewText;
         }
     }
 }

@@ -17,35 +17,55 @@ namespace PillarPencil.Test
 
             pncl.Write(ppr, "The quick brown fox jumps over the lazy dog.");
 
-            Assert.That(ppr.Text, Is.EqualTo("The quick brown fox jumps over the lazy dog."));
+            Assert.That(ppr.Text(), Is.EqualTo("The quick brown fox jumps over the lazy dog."));
         }
 
 
         [Test]
         public void Pencil_Write_Short_Text()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil();
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "Z");
+
+            Assert.That(ppr.Text(), Is.EqualTo("Z"));
         }
 
 
         [Test]
         public void Pencil_Write_Long_Text()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil();
+            var ppr = new Paper();
+
+            pncl.Write(ppr, LorumIpsum.Text);
+
+            Assert.That(ppr.Text(), Is.EqualTo(LorumIpsum.Text));
         }
 
 
         [Test]
         public void Pencil_Write_Empty_Text()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil();
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "");
+
+            Assert.That(ppr.Text(), Is.EqualTo(""));
         }
 
 
         [Test]
         public void Pencil_Write_Null_Text()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil();
+            var ppr = new Paper();
+
+            pncl.Write(ppr, null);
+
+            Assert.That(ppr.Text(), Is.EqualTo(""));
         }
     }
 }
