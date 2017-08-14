@@ -12,7 +12,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Sharpen_Resets_Durability()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, "a");
@@ -27,7 +27,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Sharpen_Decreases_Length()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, "a");
@@ -40,7 +40,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Sharpen_Zero_Length_No_Durability_Effect()
         {
-            var pncl = new Pencil(10000, 0);
+            var pncl = new Pencil(10000, 0, 50);
             var ppr = new Paper();
 
             Assert.That(pncl.Sharpen(), Is.EqualTo(false));
@@ -52,7 +52,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Sharpen_Full_Durability_No_Length_Durability_Effect()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             Assert.That(pncl.Sharpen(), Is.EqualTo(true));

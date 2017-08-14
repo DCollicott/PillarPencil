@@ -12,7 +12,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Create_Object()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
 
             Assert.That(pncl, !Is.Null);
             Assert.That(pncl.Durability, Is.EqualTo(10000));
@@ -22,7 +22,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Create_Object_Zero_Durability()
         {
-            var pncl = new Pencil(0, 5);
+            var pncl = new Pencil(0, 5, 50);
 
             Assert.That(pncl.Durability, Is.EqualTo(0));
         }
@@ -33,7 +33,7 @@ namespace PillarPencil.Test
         {
             try
             {
-                var pncl = new Pencil(-1, 5);
+                var pncl = new Pencil(-1, 5, 50);
                 Assert.Fail("Pencil constructor allowed invalid Duration value.");
             }
             catch (ArgumentOutOfRangeException)
@@ -46,7 +46,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Create_Object_Zero_Length()
         {
-            var pncl = new Pencil(10000, 0);
+            var pncl = new Pencil(10000, 0, 50);
 
             Assert.That(pncl.Length, Is.EqualTo(0));
         }
@@ -57,7 +57,7 @@ namespace PillarPencil.Test
         {
             try
             {
-                var pncl = new Pencil(10000, -1);
+                var pncl = new Pencil(10000, -1, 50);
                 Assert.Fail("Pencil constructor allowed invalid Length value.");
             }
             catch (ArgumentOutOfRangeException)

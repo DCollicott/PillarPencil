@@ -12,7 +12,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Text()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, "The quick brown fox jumps over the lazy dog");
@@ -24,7 +24,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Short_Text()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, "Z");
@@ -36,7 +36,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Long_Text()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, LorumIpsum.Text);
@@ -48,7 +48,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Empty_Text()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, "");
@@ -60,7 +60,7 @@ namespace PillarPencil.Test
         [Test]
         public void Pencil_Write_Null_Text()
         {
-            var pncl = new Pencil(10000, 5);
+            var pncl = new Pencil(10000, 5, 50);
             var ppr = new Paper();
 
             pncl.Write(ppr, null);

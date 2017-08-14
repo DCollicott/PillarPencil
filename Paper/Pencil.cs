@@ -6,21 +6,22 @@ namespace PillarPencil.Model
     public class Pencil
     {
         public int Durability { get; private set; }
-
         public int Length { get; private set; }
+        public int EraserLength { get; private set; }
 
 
         private int InitialDurability;
 
 
-        public Pencil(int Durability, int Length)
+        public Pencil(int Durability, int Length, int EraserLength)
         {
-            if ((Durability < 0) || (Length < 0))
+            if ((Durability < 0) || (Length < 0) || (EraserLength < 0))
                 throw new ArgumentOutOfRangeException();
 
             this.Durability = Durability;
             this.InitialDurability = Durability;
             this.Length = Length;
+            this.EraserLength = EraserLength;
         }
 
 
