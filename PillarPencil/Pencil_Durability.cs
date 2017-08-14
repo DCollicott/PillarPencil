@@ -58,23 +58,41 @@ namespace PillarPencil.Test
 
 
         [Test]
-        public void Pencil_Write_Partial_With_Insufficient_Durability()
+        public void Pencil_Write_Partial_With_Insufficient_Durability_Simple()
         {
-            throw new NotImplementedException();
+            var pncl = new Pencil(10);
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "abcdefghijklmnop");
+
+            Assert.That(pncl.Durability, Is.EqualTo(0));
+            Assert.That(ppr.Text(), Is.EqualTo("abcdefghij"));
+        }
+
+
+        [Test]
+        public void Pencil_Write_Partial_With_Insufficient_Durability_Complex()
+        {
+            var pncl = new Pencil(9);
+            var ppr = new Paper();
+
+            pncl.Write(ppr, "ABCDEFGHIJKLMNOP");
+
+            Assert.That(pncl.Durability, Is.EqualTo(1));
+            Assert.That(ppr.Text(), Is.EqualTo("ABCD"));
         }
 
 
         [Test]
         public void Pencil_Cant_Write_With_Zero_Durability()
         {
-            throw new NotImplementedException();
-        }
+            var pncl = new Pencil(0);
+            var ppr = new Paper();
 
+            pncl.Write(ppr, "ABCDEFGHIJKLMNOP");
 
-        [Test]
-        public void Pencil_Sharpen_Resets_Durability()
-        {
-            throw new NotImplementedException();
+            Assert.That(pncl.Durability, Is.EqualTo(0));
+            Assert.That(ppr.Text(), Is.EqualTo(""));
         }
     }
 }
