@@ -5,7 +5,7 @@ namespace PillarPencil.Test
 {
     public class LorumIpsum
     {
-        public static string Text = 
+        public static string Text { get; } =
 @"Lorem ipsum dolor sit amet consectetur adipiscing elit Proin sed massa nec leo finibus accumsan Suspendisse iaculis consequat ipsum sit amet maximus Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus Phasellus justo nulla vulputate quis enim ac congue interdum orci Curabitur at sodales nibh quis interdum erat Praesent a fermentum leo eget sagittis est Vestibulum scelerisque quam nec luctus porttitor ipsum dolor vehicula ligula eget iaculis quam tellus facilisis dolor Donec sit amet porta nisl Vestibulum ac tortor nisl Nam sit amet laoreet est Aenean tincidunt mauris id est volutpat auctor Donec vehicula felis nibh suscipit accumsan libero molestie vitae
 Nam aliquam feugiat iaculis Sed efficitur ipsum et risus tempus viverra Integer nunc purus placerat elementum massa blandit dapibus fermentum leo Fusce auctor sapien turpis Pellentesque nec scelerisque augue eget interdum sapien Maecenas molestie lacus magna id rutrum nunc ultrices non Curabitur vel purus vel augue facilisis pretium Sed pretium diam at iaculis sagittis enim mauris volutpat nulla id gravida purus nibh sit amet ipsum Aenean cursus suscipit urna eget tristique Curabitur facilisis lorem quis suscipit egestas
 Pellentesque fringilla hendrerit tempus Nunc nisi nisl luctus vel felis eu egestas rhoncus nulla Mauris mollis maximus metus sit amet facilisis quam sagittis nec In sit amet turpis non sem suscipit ultrices In ac leo condimentum dignissim nisl vitae faucibus nunc Sed lacinia accumsan luctus Sed cursus metus sed congue porttitor eros lacus aliquam enim eu aliquet mauris orci vitae risus Phasellus imperdiet id ex non aliquam Maecenas sed rutrum urna vel dignissim erat Donec ac imperdiet elit Curabitur accumsan mi orci Sed sem turpis imperdiet a luctus et placerat vel elit Suspendisse aliquam velit ut ex interdum commodo
@@ -25,5 +25,17 @@ Etiam lobortis consectetur massa in rutrum risus sollicitudin vitae Aliquam et m
 Donec ut eros vitae erat hendrerit efficitur id id enim Suspendisse sodales nec dui ultrices ultrices Sed pharetra eros at neque fringilla sit amet vehicula sem dignissim In hac habitasse platea dictumst Curabitur nec tellus non lectus ultrices egestas accumsan in ipsum Sed in finibus sem Aenean tellus nisl ornare at justo ac congue vestibulum nisl Donec sit amet augue rutrum laoreet sem in consectetur nisl Aenean justo ligula suscipit at mi nec viverra accumsan quam Aenean tempus magna id vestibulum elementum libero purus porttitor nisl ut egestas diam enim in lacus
 Nam volutpat faucibus mi vitae condimentum Pellentesque auctor nulla lorem In eleifend commodo purus vel consectetur enim ultricies eu Nullam ipsum diam vehicula ac tempor eu congue maximus risus Vestibulum in semper ligula Nulla aliquam elit in molestie efficitur Donec mollis sapien in enim ultricies sit amet faucibus lorem ullamcorper Nam elit ipsum ullamcorper eu mi eget blandit dignissim eros Phasellus blandit lorem vitae dignissim volutpat
 Nullam pretium leo sed consectetur elementum Mauris ac gravida quam et fermentum dolor Quisque suscipit blandit risus non finibus ligula pellentesque non In et ante cursus lacinia nunc at pharetra urna Aenean non varius sapien In elit urna mollis at justo eu condimentum porttitor purus Quisque id ligula dolor Aliquam a condimentum felis id facilisis lectus Quisque iaculis lorem arcu eu ultrices dolor tristique nec Fusce sed interdum augue";
+
+        public static string MiddleChunk
+        {
+            get
+            {
+                var begin = Text.IndexOf(' ');
+                var end = Text.LastIndexOf(' ');
+                var len = end - begin - 1;
+
+                return Text.Substring(begin, len);
+            }
+        }
     }
 }

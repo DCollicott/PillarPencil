@@ -25,21 +25,23 @@ namespace PillarPencil.Model
         }
 
 
-        public void Write(Paper Ppr, string NewText)
+        public bool Write(Paper Ppr, string NewText)
         {
             if (NewText == null)
-                return;     // Remember, string is nullable. This is allowed. Just do nothing.
+                return true;     // Remember, string is nullable. This is allowed. Just do nothing.
 
             foreach (char ch in NewText)
             {
                 if (Durability < DurabilityCost(ch))
-                    break;
+                    return false;
                 else
                 {
                     Ppr.Append(ch);
                     Durability -= DurabilityCost(ch);
                 }
             }
+
+            return true;
         }
 
 
@@ -50,6 +52,32 @@ namespace PillarPencil.Model
 
             Durability = InitialDurability;
             Length -= 1;
+
+            return true;
+        }
+
+
+        public bool Erase(Paper Ppr, string EraseText)
+        {
+            if ((EraseText == null) || (EraseText == ""))
+                return true;
+
+            var found = Ppr.FindFromEnd(EraseText);
+
+            if ((found == -1) || (EraserLength == 0))
+                return false;
+
+            for (int n=EraseText.Length-1; n>=0; n--)
+            {
+                var m = found + n;
+                var ch = Ppr.Text()[n];
+
+                if (EraserCost(ch) > EraserLength)
+                    return false;
+
+                Ppr.Replace(m, ' ');
+                EraserLength -= EraserCost(ch);
+            }
 
             return true;
         }
@@ -78,6 +106,26 @@ namespace PillarPencil.Model
                 return 2;
 
             throw new Exception("Cannot determine DurabilityCost of an invalid character with ASCII value " + (int)Ch);
+        }
+
+
+        private int EraserCost(String Str)
+        {
+            int cost = 0;
+
+            foreach (char ch in Str)
+                cost += EraserCost(ch);
+
+            return cost;
+        }
+
+
+        private int EraserCost(Char Ch)
+        {
+            if (IsWhiteSpace(Ch))
+                return 0;
+
+            return 1;
         }
 
 

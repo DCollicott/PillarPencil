@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="LorumIpsum.cs" />
     <Compile Include="Paper_Manipulation.cs" />
-    <Compile Include="Paper_Erase.cs" />
+    <Compile Include="Pencil_Erase.cs" />
     <Compile Include="Paper_ObjectCreation.cs" />
     <Compile Include="Pencil_Sharpen.cs" />
     <Compile Include="Pencil_Durability.cs" />
